@@ -1,0 +1,40 @@
+<div class="mdl-card__title" id="viewHeading"></div>
+<div>
+    <div id="toolbar" class="mdl-toolbar-row">&nbsp;
+        <a id="btnBack" href="#" onclick="window.location.reload();" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--accent mdl-color-text--accent-contrast">Home</a>&nbsp;&nbsp;&nbsp;
+        <a id="btnAdd" href="companyAdd" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--accent mdl-color-text--accent-contrast">Add</a>&nbsp;&nbsp;&nbsp;
+        <button id="btnRefresh" (click)="refresh()" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--accent mdl-color-text--accent-contrast">Refresh</button>
+    </div>
+    <div class="mdl-grid">
+    
+        <p *ngIf="!Companys"><em>Loading...</em></p>
+    
+        <table border="1" class='table table-striped' aria-labelledby="tableLabel" *ngIf="Companys">
+            <thead>
+                <tr>
+                    <th class="mdl-data-table__cell--non-numeric">Name</th>
+                    <th class="mdl-data-table__cell--non-numeric">AddressLine1</th>
+                    <th class="mdl-data-table__cell--non-numeric">City</th>
+                    <th class="mdl-data-table__cell--non-numeric">State</th>
+                    <th class="mdl-data-table__cell--non-numeric">PostalCode</th>
+                    <th class="mdl-data-table__cell--non-numeric">Url</th>
+                    <th class="mdl-data-table__cell--non-numeric">Edit</th>
+                    <th class="mdl-data-table__cell--non-numeric">Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let Company of Companys" class="shapes">
+                    <td><a [title]="'edit'" (click)="edit(Company)"><span class="badge">{{ Company.Name }}</span></a></td>
+                    <td>{{ Company.AddressLine1 }}</td>
+                    <td>{{ Company.City }}</td>
+                    <td>{{ Company.State }}</td>
+                    <td>{{ Company.PostalCode }}</td>
+                    <td>{{ Company.Url }}</td>
+                    <td><a [title]="'edit'" href="companyEdit?action=edit&id={{Company.CompanyID}}">{{Company.CompanyID}}</a></td>
+                    <td><a [title]="'delete'" href="delete.html?action=delete&shape=Company&id={{Company.CompanyID}}">X</a></td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+</div>

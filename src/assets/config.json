@@ -1,0 +1,13 @@
+{
+    "appBaseUrl": "http://localhost:4200",
+    "apiBaseUrl": "https://localhost:44374",
+    "companiesUrl": "/company",
+    "contactsUrl": "/contact",
+    "projectsUrl": "/project",
+    "jobsUrl": "/job",
+    "statesUrl": "/state",
+    "categorysUrl": "/category",
+    "citysUrl": "/city",
+    "rolesUrl": "/role",
+    "titlesUrl": "/title"
+  }

@@ -1,0 +1,34 @@
+<div class="mdl-card__title" id="viewHeading"></div>
+<div>
+    <div id="toolbar" class="mdl-toolbar-row">&nbsp;
+        <a id="btnBack" href="#" onclick="window.location.reload();" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--accent mdl-color-text--accent-contrast">Home</a>&nbsp;&nbsp;&nbsp;
+        <a id="btnAdd" href="projectAdd" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--accent mdl-color-text--accent-contrast">Add</a>&nbsp;&nbsp;&nbsp;
+        <a id="btnRefresh" href="#" onclick="window.location.reload();" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--accent mdl-color-text--accent-contrast">Refresh</a>
+    </div>
+    <div class="mdl-grid">
+    
+        <p *ngIf="!Projects"><em>Loading...</em></p>
+    
+        <table class='table table-striped' aria-labelledby="tableLabel" *ngIf="Projects">
+            <thead>
+                <tr>
+                    <th class="mdl-data-table__cell--non-numeric">Name</th>
+                    <th class="mdl-data-table__cell--non-numeric">Description</th>
+                    <th class="mdl-data-table__cell--non-numeric">Budget</th>
+                    <th class="mdl-data-table__cell--non-numeric">Edit</th>
+                    <th class="mdl-data-table__cell--non-numeric">Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let Project of Projects">
+                    <td><a [title]="'edit'" (click)="edit(Project)"><span class="badge">{{ Project.Name }}</span></a></td>
+                    <td>{{ Project.Description }}</td>
+                    <td>{{ Project.Budget }}</td>
+                    <td><a [title]="'edit'" href="projectEdit?action=edit&id={{Project.ProjectID}}">{{Project.ProjectID}}</a></td>
+                    <td><a [title]="'delete'" href="delete.html?action=delete&shape=Project&id={{Project.ProjectID}}">X</a></td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+</div>

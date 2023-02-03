@@ -1,0 +1,61 @@
+<div class="mdl-grid portfolio-max-width" *ngIf="Company">
+    <div class="mdl-cell mdl-cell--12-col mdl-card mdl-shadow--4dp">
+        <div class="mdl-card__title" id="viewHeading">
+            <h1>Edit Company:</h1>
+            <h2 class="mdl-card__title-text">{{displayMessage}}</h2>
+        </div>
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <br />
+            <input class="mdl-textfield__input" type="text" [(ngModel)]="Company.Name" id="Name" pattern="[A-Z,a-z, ]*">
+            <label class="mdl-textfield__label FieldLabel" for="Name">Name:</label>
+            <span class="mdl-textfield__error">Required!</span>
+        </div>
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <br />
+            <input class="mdl-textfield__input" type="text" [(ngModel)]="Company.AddressLine1"  id="AddressLine1">
+            <label class="mdl-textfield__label FieldLabel" for="AddressLine1">Address Line 1:</label>
+            <span class="mdl-textfield__error">Required!</span>
+        </div>
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <br />
+            <input class="mdl-textfield__input" type="text" [(ngModel)]="Company.AddressLine2"  id="AddressLine2">
+            <label class="mdl-textfield__label FieldLabel" for="AddressLine2">Address Line 2:</label>
+            <span class="mdl-textfield__error">Required!</span>
+        </div>
+
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <br />
+            <select id="Citys">
+                <option value="">-- select --</option>        
+                <option *ngFor="let c of Citys" [ngValue]="c">{{c}}</option>
+            </select>
+            <label class="mdl-textfield__label FieldLabel" for="City">City:</label>
+        </div>
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <br />
+            <select id="States" [(ngModel)]="State" >
+                <option value="">-- select --</option>        
+                <option *ngFor="let s of States" [ngValue]="s.StateNo">{{s.Name}}</option>
+            </select>
+            <label class="mdl-textfield__label FieldLabel" for="StateCode">State:</label>
+        </div>
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <br />
+            <input class="mdl-textfield__input" type="text" [(ngModel)]="Company.PostalCode" id="PostalCode" pattern="-?[0-9]*(\.[0-9]+)?">
+            <label class="mdl-textfield__label FieldLabel" for="PostalCode">Zip:</label>
+            <span class="mdl-textfield__error">input is not a number</span>
+        </div>
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <br />
+            <input class="mdl-textfield__input" type="text" [(ngModel)]="Company.Url" id="Url">
+            <label class="mdl-textfield__label FieldLabel" for="Url">Url:</label>
+            <span class="mdl-textfield__error">Required!</span>
+        </div>
+        <br />
+        <div id="toolbar" class="mdl-toolbar-row">
+            <button id="btnSave" (click)="edit()" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--accent mdl-color-text--accent-contrast">Save</button>&nbsp;&nbsp;&nbsp;
+            <a id="btnCancel" href="company" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--accent mdl-color-text--accent-contrast">Cancel</a>
+        </div>
+        <div id="results"></div>
+    </div>
+</div>

@@ -1,0 +1,38 @@
+<div class="mdl-card__title" id="viewHeading"></div>
+<div>
+    <div id="toolbar" class="mdl-toolbar-row">&nbsp;
+        <a id="btnBack" href="#" onclick="window.location.reload();" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--accent mdl-color-text--accent-contrast">Home</a>&nbsp;&nbsp;&nbsp;
+        <a id="btnAdd" href="jobAdd" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--accent mdl-color-text--accent-contrast">Add</a>&nbsp;&nbsp;&nbsp;
+        <a id="btnRefresh" href="#" onclick="window.location.reload();" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--accent mdl-color-text--accent-contrast">Refresh</a>
+    </div>
+    <div class="mdl-grid">
+    
+        <p *ngIf="!Jobs"><em>Loading...</em></p>
+    
+        <table class='table table-striped' aria-labelledby="tableLabel" *ngIf="Jobs">
+            <thead>
+                <tr>
+                    <th class="mdl-data-table__cell--non-numeric">Title</th>
+                    <th class="mdl-data-table__cell--non-numeric">City</th>
+                    <th class="mdl-data-table__cell--non-numeric">State</th>
+                    <th class="mdl-data-table__cell--non-numeric">Email</th>
+                    <th class="mdl-data-table__cell--non-numeric">Phone</th>
+                    <th class="mdl-data-table__cell--non-numeric">Edit</th>
+                    <th class="mdl-data-table__cell--non-numeric">Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let Job of Jobs">
+                    <td><a [title]="'edit'" (click)="edit(Job)"><span class="badge">{{ Job.Title }}</span></a></td>
+                    <td>{{ Job.City }}</td>
+                    <td>{{ Job.State }}</td>
+                    <td>{{ Job.Email }}</td>
+                    <td>{{ Job.Phone }}</td>
+                    <td><a [title]="'edit'" href="jobEdit?action=edit&id={{Job.JobID}}">{{Job.JobID}}</a></td>
+                    <td><a [title]="'delete'" href="delete.html?action=delete&shape=Job&id={{Job.JobID}}">X</a></td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+</div>
